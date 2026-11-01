@@ -4223,7 +4223,7 @@ class HBProtocol(asyncio.DatagramProtocol):
         return passphrase.encode('utf-8') if isinstance(passphrase, str) else passphrase
 
     def _handle_openbridge_packet(self, obp_name: str, packet: bytes, addr: tuple) -> None:
-        """Authenticate, filter, and (TODO: route) an inbound OBP frame."""
+        """Authenticate, filter, and route an inbound OBP frame."""
         state = self._openbridges.get(obp_name)
         if state is None:
             return
